@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Libre+Franklin:wght@100&display=swap');
+
+:root {
+    --color-white: #FFF;
+    --color-black: #000;
+    --bg-color: #333;
+    --bg-left-color: #daa52099;
+    --bg-right-color: #28282899;
+    --bg-btn-left: #daa520;
+    --bg-btn-right: #282828;
+    --hover-width: 75%;
+    --other-width: 25%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Arimo', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+}
+
+.split {
+    width: 50%;
+    height: inherit;
+    position: absolute;
+    overflow: hidden;
+}
+
+.left {
+    left: 0;
+    background-image: url('iphone.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.right {
+    right: 0;
+    background-image: url('samsung.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.left::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-left-color);
+}
+
+.right::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-right-color);
+}
+
+.right, .left, .right::before, .left::before {
+    transition: all ease-in-out 1000ms;
+} 
+
+.hover--left .left {
+    width: var(--hover-width);
+}
+
+.hover--left .right {
+    width: var(--other-width);
+}
+
+.hover--right .left {
+    width: var(--other-width);
+}
+
+.hover--right .right {
+    width: var(--hover-width);
+}
+
+h1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    font-size: 4rem;
+    color: var(--color-white);
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.btn--buy {
+    width: 15rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-white);
+    top: 60%;
+    left: 50%;
+    border: 0.2rem solid var(--color-white);
+    border-radius: 50px;
+    transform: translateX(-50%);
+    transition: background-color .3s;
+}
+
+.left .btn--buy:hover {
+    border: 0.2rem solid var(--bg-btn-left);
+    background-color: var(--bg-btn-left);
+    cursor: pointer;
+}
+
+.right .btn--buy:hover {
+    border: 0.2rem solid  var(--bg-btn-right);
+    background-color: var(--bg-btn-right);
+    cursor: pointer;
+}
+
+@media (max-width: 1370px) {
+    h1 {
+        font-size: 3rem;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn--buy {
+        padding: 1.2rem;
+        width: 12rem;
+    }
+}
+
